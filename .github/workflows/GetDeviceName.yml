@@ -1,0 +1,48 @@
+# Build C++ project
+# and create NuGet package
+
+name: Build and Publish GetDeviceName
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'GetDeviceName\**'
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'GetDeviceName\**'
+  # schedule:
+  #   - cron: "0 0 1 */2 *"
+  workflow_dispatch:
+  
+permissions:
+  contents: read
+  packages: write
+  
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
+    - name: Build GetDeviceName
+      run: |
+        msbuild.exe GetDeviceName\GetDeviceName.vcxproj /nologo /nr:false /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Debug" /p:OutputPath="bin\Debug"
+        
+    # - name: Generate Nuget Package 
+    #   run: nuget pack GetDeviceName\GetDeviceName.nuspec -OutputDirectory .
+
+    # - name: Push to GitHub package registry
+    #   run: dotnet nuget push *.GetDeviceName.*.nupkg --source "OrgGitHubFeed" --api-key ${{ secrets.GITHUB_TOKEN }}
