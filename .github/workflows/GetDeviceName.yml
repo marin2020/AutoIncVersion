@@ -38,6 +38,7 @@ jobs:
     - name: List files in the repository
       run: |
           dir ${{ github.workspace }} -Recurse
+          Get-ChildItem ${{ github.workspace }} -Recurse
           ls ${{ github.workspace }}\GetDeviceName
           
     - name: Setup MSBuild
