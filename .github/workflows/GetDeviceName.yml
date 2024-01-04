@@ -7,11 +7,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'GetDeviceName\**'
+      - 'GetDeviceName/**'
   pull_request:
     branches: [ "main" ]
     paths:
-      - 'GetDeviceName\**'
+      - 'GetDeviceName/**'
   # schedule:
   #   - cron: "0 0 1 */2 *"
   workflow_dispatch:
