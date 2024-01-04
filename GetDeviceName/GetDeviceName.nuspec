@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <!-- Identifier that must be unique within the hosting gallery -->
+        <id>Milestone.TA.GetDeviceName</id>
+
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.0.0.0</version>
+
+        <!-- Authors contain text that appears directly on the gallery -->
+        <authors>matn,ikk</authors>
+
+        <!-- 
+            Owners are typically nuget.org identities that allow gallery
+            users to easily find other packages by the same owners.  
+        -->
+        <owners>Milestone TA</owners>
+        
+         <!-- License information is displayed on the gallery -->
+        <license type="expression">Apache-2.0</license>
+        
+
+        <!-- 
+            If true, this value prompts the user to accept the license when
+            installing the package. 
+        -->
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+		
+        <!-- 
+            The description can be used in package manager UI. Note that the
+            nuget.org gallery uses information you add in the portal. 
+        -->
+        <description>GetDeviceName C++ executable</description>
+
+        <!-- Copyright information -->
+        <copyright>©2023 Milestone TA</copyright>
+
+        <!-- Tags appear in the gallery and can be used for tag searches -->
+        <tags>native</tags>
+
+        <!-- Dependencies are automatically installed when the package is installed -->
+        <dependencies>
+            <group targetFramework="net46">
+			</group>
+        </dependencies>
+    </metadata>
+</package>
