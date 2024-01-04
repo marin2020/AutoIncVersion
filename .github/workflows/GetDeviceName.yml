@@ -51,7 +51,7 @@ jobs:
       run: |
         msbuild.exe GetDeviceName\GetDeviceName.vcxproj /nologo /nr:false /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Debug" /p:OutputPath="bin\Debug"
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    - run: echo "🍏 This job's status is ${{ job.status }}."
         
     # - name: Generate Nuget Package 
     #   run: nuget pack GetDeviceName\GetDeviceName.nuspec -OutputDirectory .
