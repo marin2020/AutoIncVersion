@@ -26,8 +26,11 @@ Write-Output "File: $name"
 
 $sep = [System.IO.Path].DirectorySeparatorChar
 $fileName = $dir + $sep + $name
+Write-Output "FileName: $fileName"
 $rcFileName = $fileName + ".rc"
+Write-Output "rcFileName: $rcFileName"
 $verFileName = $fileName + ".GhVersion"
+Write-Output "verFileName: $verFileName"
 
 $ver = (Get-Content $verFileName).Split('.');
 $major = $ver[0];
