@@ -45,7 +45,7 @@ jobs:
       run: |
           dir ${{ github.workspace }} -Recurse
           Get-ChildItem ${{ github.workspace }} -Recurse
-          ChangeRcVersion.ps1 -dir ${{ github.workspace }}\GetDeviceName -name GetDeviceName
+          .\ChangeRcVersion.ps1 -dir ${{ github.workspace }}\GetDeviceName -name GetDeviceName
           
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
