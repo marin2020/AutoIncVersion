@@ -26,7 +26,6 @@ Write-Output "File: $name"
 
 $sep = [System.IO.Path]::DirectorySeparatorChar
 $fileName = $dir + $sep + $name
-Write-Output "FileName: $fileName"
 $rcFileName = $fileName + ".rc"
 Write-Output "rcFileName: $rcFileName"
 $verFileName = $fileName + ".GhVersion"
@@ -36,11 +35,9 @@ $ver = (Get-Content $verFileName).Split('.');
 $major = $ver[0];
 $minor = $ver[1];
 
-
 $build = (New-TimeSpan -Start (Get-Date -Date "2000-01-01") -End ([DateTime]::Now)).Days;
 $patch =  [Math]::Ceiling((New-TimeSpan -Start ([DateTime]::Today) -End ([DateTime]::Now)).TotalSeconds / 2)
-$build
-$patch
+
 $repl = $major + '${s1}'+ $minor +'${s2}'+$build +'${s3}'+ $patch
 $repl
 
@@ -48,3 +45,4 @@ $repl
     -replace '(?<major>\d+)(?<s1>[.|,]{1})(?<minor>\d+)(?<s2>[.|,]{1})(?<build>\d+)(?<s3>[.|,]{1})(?<patch>\d+)', $repl `
   |
 Out-File $rcFileName
+Write-Output "Version in $rcFilName set to $major.$minor.$build.$patch"
