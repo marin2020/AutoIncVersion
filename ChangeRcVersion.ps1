@@ -24,7 +24,7 @@ if([string]::IsNullOrWhiteSpace($name))
 Write-Output "Dir : $dir" 
 Write-Output "File: $name" 
 
-$sep = [System.IO.Path].DirectorySeparatorChar
+$sep = [System.IO.Path]::DirectorySeparatorChar
 $fileName = $dir + $sep + $name
 Write-Output "FileName: $fileName"
 $rcFileName = $fileName + ".rc"
